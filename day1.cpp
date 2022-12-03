@@ -5,7 +5,7 @@ namespace d1 {
 
 auto to_int = []( std::string const& s ) { return std::stoi( s ); };
 
-u64 part1()
+i32 part1()
 {
 	const std::vector<std::string> lines = ReadLines( "input/day1.txt" );
 
@@ -16,7 +16,7 @@ u64 part1()
 	return ranges::max( range );
 }
 
-u64 part2()
+i32 part2()
 {
 	const std::vector<std::string> lines = ReadLines( "input/day1.txt" );
 
@@ -34,11 +34,11 @@ u64 part2()
 
 }
 
-int main()
-{
-	
-	fmt::print( "Day 1 part 1 {}\n", d1::part1() );
-	fmt::print( "Day 1 part 2 {}\n", d1::part2() );
-
-	return 0;
-}
+//int main()
+//{
+//	
+//	fmt::print( "Day 1 part 1 {}\n", d1::part1() );
+//	fmt::print( "Day 1 part 2 {}\n", d1::part2() );
+//
+//	return 0;
+//}

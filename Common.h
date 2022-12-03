@@ -45,3 +45,8 @@ inline std::vector<std::string> ReadLines( std::string const& path )
 
 	return ranges::to<std::vector>( lines );
 }
+
+template<typename T>
+T positive_modulo( T i, T n ) {
+	return ( i % n + n ) % n;
+}

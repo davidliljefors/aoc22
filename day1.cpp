@@ -3,33 +3,33 @@
 
 namespace d1 {
 
-auto to_int = []( std::string const& s ) { return std::stoi( s ); };
+auto to_int = [](std::string const& s) { return std::stoi(s); };
 
 i32 part1()
 {
-	const std::vector<std::string> lines = ReadLines( "input/day1.txt" );
+	const std::vector<std::string> lines = ReadLines("input/day1.txt");
 
 	auto range = lines
-		| views::split( "" )
-		| views::transform( []( auto subrange ) { return ranges::accumulate( subrange, 0, ops::plus, to_int ); } );
+		| views::split("")
+		| views::transform([](auto subrange) { return ranges::accumulate(subrange, 0, ops::plus, to_int); });
 
-	return ranges::max( range );
+	return ranges::max(range);
 }
 
 i32 part2()
 {
-	const std::vector<std::string> lines = ReadLines( "input/day1.txt" );
+	const std::vector<std::string> lines = ReadLines("input/day1.txt");
 
 	auto range = lines
-		| views::split( "" )
-		| views::transform( []( auto subrange ) { return ranges::accumulate( subrange, 0, ops::plus, to_int ); } );
-	
-	std::vector<int> top3;
-	top3.resize( 3 );
+		| views::split("")
+		| views::transform([](auto subrange) { return ranges::accumulate(subrange, 0, ops::plus, to_int); });
 
-	ranges::partial_sort_copy( range, top3, std::greater{} );
-	
-	return ranges::accumulate( top3, 0 );
+	std::vector<int> top3;
+	top3.resize(3);
+
+	ranges::partial_sort_copy(range, top3, std::greater{});
+
+	return ranges::accumulate(top3, 0);
 }
 
 }

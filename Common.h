@@ -3,7 +3,8 @@
 #include <string>
 #include <fstream>
 #include <filesystem>
-
+#include <concepts>
+#include <charconv>
 #include <range/v3/all.hpp>
 #include <fmt/core.h>
 
@@ -15,6 +16,33 @@ using u64 = std::uint64_t;
 using i64 = std::int64_t;
 using u32 = std::uint32_t;
 using i32 = std::int32_t;
+
+template<std::integral T>
+auto to_int(std::string_view sv)
+{
+	T out{};
+	const auto [ptr, ec] = std::from_chars(sv.data(), (sv.data() + sv.size()), out);
+	if (ec == std::errc{})
+	{
+		return out;
+	}
+	throw std::runtime_error("failed to parse number");
+}
+
+
+inline std::pair<std::string_view, std::string_view> split_at(std::string_view s, char delim)
+{
+	const auto midpoint = s.find(delim);
+	
+	if (midpoint == std::string_view::npos)
+	{
+		return { s, {""} };
+	}
+
+	const auto left = s.substr(0, midpoint);
+	const auto right = s.substr(midpoint + 1);
+	return { left, right };
+}
 
 inline std::string ReadFile( std::string const& path )
 {

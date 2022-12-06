@@ -29,6 +29,18 @@ auto to_int(std::string_view sv)
 	throw std::runtime_error("failed to parse number");
 }
 
+template<std::integral T>
+auto to_int(std::vector<char> const& data)
+{
+	T out{};
+	const auto [ptr, ec] = std::from_chars(data.data(), (data.data() + data.size()), out);
+	if (ec == std::errc{})
+	{
+		return out;
+	}
+	throw std::runtime_error("failed to parse number");
+}
+
 
 inline std::pair<std::string_view, std::string_view> split_at(std::string_view s, char delim)
 {
@@ -61,7 +73,7 @@ inline std::string ReadFile( std::string const& path )
 	return content;
 }
 
-inline std::vector<std::string> ReadLines( std::string const& path )
+inline std::vector<std::string> read_lines( std::string const& path )
 {
 	const std::string file = ReadFile( path );
 

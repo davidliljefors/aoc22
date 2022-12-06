@@ -7,7 +7,7 @@ auto to_int = [](std::string const& s) { return std::stoi(s); };
 
 i32 part1()
 {
-	const std::vector<std::string> lines = ReadLines("input/day1.txt");
+	const std::vector<std::string> lines = read_lines("input/day1.txt");
 
 	auto range = lines
 		| views::split("")
@@ -18,7 +18,7 @@ i32 part1()
 
 i32 part2()
 {
-	const std::vector<std::string> lines = ReadLines("input/day1.txt");
+	const std::vector<std::string> lines = read_lines("input/day1.txt");
 
 	auto range = lines
 		| views::split("")

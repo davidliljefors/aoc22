@@ -43,22 +43,22 @@ auto is_range_overlap(std::pair<Range, Range> ranges) -> bool
 
 i32 part1()
 {
-	const std::vector<std::string> lines = ReadLines("input/day4.txt");
+	const std::vector<std::string> lines = read_lines("input/day4.txt");
 	return ranges::count_if(lines, is_range_in_range, parse_line);
 }
 
 i32 part2()
 {
-	const std::vector<std::string> lines = ReadLines("input/day4.txt");
+	const std::vector<std::string> lines = read_lines("input/day4.txt");
 	return ranges::count_if(lines, is_range_overlap, parse_line);
 }
 
 }
 
-int main()
-{
-	fmt::print("Day 4 part 1 {}\n", d4::part1());
-	fmt::print("Day 4 part 2 {}\n", d4::part2());
-
-	return 0;
-};
+//int main()
+//{
+//	fmt::print("Day 4 part 1 {}\n", d4::part1());
+//	fmt::print("Day 4 part 2 {}\n", d4::part2());
+//
+//	return 0;
+//};

@@ -46,7 +46,7 @@ const auto to_priority = [](char c)
 
 i32 part1()
 {
-	const std::vector<std::string> lines = ReadLines("input/day3.txt");
+	const std::vector<std::string> lines = read_lines("input/day3.txt");
 
 	auto range = lines
 		| views::transform(split_string_half)
@@ -58,7 +58,7 @@ i32 part1()
 
 i32 part2()
 {
-	const std::vector<std::string> lines = ReadLines("input/day3.txt");
+	const std::vector<std::string> lines = read_lines("input/day3.txt");
 
 	auto range = lines
 		| views::chunk(3)

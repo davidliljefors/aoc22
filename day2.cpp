@@ -55,13 +55,13 @@ const auto score_fn2 = [](std::string const& s)
 
 i32 part1()
 {
-	const std::vector<std::string> lines = ReadLines("input/day2.txt");
+	const std::vector<std::string> lines = read_lines("input/day2.txt");
 	return ranges::accumulate(lines, 0, ops::plus, score_fn1);
 }
 
 i32 part2()
 {
-	const std::vector<std::string> lines = ReadLines("input/day2.txt");
+	const std::vector<std::string> lines = read_lines("input/day2.txt");
 	return ranges::accumulate(lines, 0, ops::plus, score_fn2);
 }
 
